@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  get 'tags/:tag', to: 'articles#index', as: :tag
+
+  root 'articles#index'
+  resources :articles do 
+    resources :comments
+  end
+  get 'welcome/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
